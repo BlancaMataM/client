@@ -1,0 +1,35 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="assets/image/user.png" id="icon" alt="User Icon" />
+            <!-- <a href="assets/image/user"></a> -->
+        </div>
+
+        <!-- Login Form -->
+        <form (ngSubmit)="ingresar(forma)" #forma="ngForm">
+            <input pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" type="text" class="form-control" name="strEmail" [ngClass]="{'is-invalid': strEmail.errors?.required && forma.controls['strEmail'].touched }" [(ngModel)]="personaModel.strEmail" required #strEmail="ngModel"
+                placeholder="Correo Electrónico" id="login" class="fadeIn second" name="strEmail">
+
+
+            <input pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$" type="text" class="form-control" placeholder="Contraseña" [ngClass]="{'is-invalid': strPassword.errors?.required && forma.controls['strPassword'].touched }" name="strPassword" [(ngModel)]="personaModel.strPassword"
+                required #strPassword="ngModel" id="password" class="fadeIn third" name="login" placeholder="password">
+
+
+            <input type="submit" class="fadeIn fourth" value="Log In">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <!-- <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+        </div> -->
+
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<form (ngSubmit)="registrar(forma)" #forma="ngForm">
+    <div class="form-row animated fadeIn">
+
+        <div class="form-group col-12 mb-3">
+            <label class="card-subtitle mb-1">Nombre</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Inserte nombre" [ngClass]="{'is-invalid': strName.errors?.required && forma.controls['strName'].touched }" name="strName" [(ngModel)]="shopModel.strName" required #strName="ngModel">
+            <div class="invalid-feedback">
+                <small>Es necesario ingresar el nombre de la tienda</small>
+            </div>
+        </div>
+
+        <div class="form-group col-12 mb-3">
+            <label class="card-subtitle mb-1">Descripción</label>
+            <textarea type="text" class="form-control form-control-sm" placeholder="Inserte la descripción" [ngClass]="{'is-invalid': strDescription.errors?.required && forma.controls['strDescription'].touched }" name="strDescription" [(ngModel)]="shopModel.strDescription"
+                required #strDescription="ngModel"></textarea>
+            <div class="invalid-feedback">
+                <small>Es necesario ingresar la descripción de la tienda</small>
+            </div>
+        </div>
+
+        <div class="form-group col-12 text-right">
+            <!-- <button (click)="limpiar(forma)" type="button" class="btn btn-light mr-2" data-dismiss="modal">Limpiar</button> -->
+            <button type="submit" [disabled]="forma.invalid" class="btn btn-info">Registrar</button>
+        </div>
+    </div>
+</form>
