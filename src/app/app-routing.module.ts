@@ -9,6 +9,7 @@ import { ShopListComponent } from './components/shop/shop-list/shop-list.compone
 import { ShopModificaComponent } from './components/shop/shop-modifica/shop-modifica.component';
 import { ShopRegistroComponent } from './components/shop/shop-registro/shop-registro.component';
 import { LoginComponent } from './components/login/login/login.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path: 'shop/edit/:id',
     component: ShopModificaComponent
+  },
+  {
+    path: 'carrito',
+    component: CarritoComponent
   }
 ];
 

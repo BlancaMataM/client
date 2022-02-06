@@ -1,0 +1,35 @@
+<div>
+    <h3>Tus productos son:</h3>
+</div>
+<div *ngFor="let prod of product" class="card card-body mb-2 shadow">
+
+    <div class="row">
+        <div class="col-mb-8">
+            <ul>
+                <li>
+                    id: {{nameProduct._id}}
+                </li>
+                <li>
+                    Nombre: {{nameProduct.strName}}
+                </li>
+                <li>
+                    Descripción: {{nameProduct.strDescription}}
+                </li>
+                <li>
+                    Precio: {{nameProduct.strPrice}}
+                </li>
+                <li>
+                    Activo: {{nameProduct.blnActive}}
+                    <td *ngIf="nameProduct.blnActive ">Activo</td>
+                    <td *ngIf="!nameProduct.blnActive"> Inactivo </td>
+                </li>
+                <li>
+                    created At: {{nameProduct.createdAt}}
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <img [src]="nameProduct.strFile" class="card-img">
+        </div>
+    </div>
+</div>

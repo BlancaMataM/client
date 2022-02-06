@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ProductModel } from 'src/app/models/products/product.model';
 import { ProductService } from 'src/app/services/product/product.service';
 import Swal from 'sweetalert2';
+import { environment } from '../../../../environments/environment.prod';
 const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -20,6 +21,7 @@ export class ProductListComponent implements OnInit {
   @Output() actualizarProductos = new EventEmitter();
   product: any[] = [];
   // productModel: ProductModel;
+  idCarrito = environment.idCarrito;
   edit = false;
   constructor( private productService: ProductService) { }
 
@@ -36,6 +38,21 @@ export class ProductListComponent implements OnInit {
     } catch (err) {
     }
    
+  }
+
+  async agregarProductoCarrito(productModel: ProductModel) {
+    try {
+      const resp: any = await this.productService.actualizarProductCarrito(this.idCarrito, productModel);
+      Toast.fire({
+        icon: 'info',
+        title: resp.msg
+      });
+    } catch (err: any) {
+      Toast.fire({
+        icon: 'warning',
+        title: err.error.msg
+      })
+    }
   }
 
   eliminar(productModel: ProductModel) {
@@ -64,8 +81,6 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  async modificarProducto() {
-
-  }
+  async modificarProducto() {}
 
 }

@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment.prod';
 export class ProductService {
 
   url = `${environment.url}/product`;
+  urlCar = `${environment.url}/car`;
   constructor( private http: HttpClient ) { }
 
 
@@ -30,6 +31,16 @@ editarProducto(productID: any, producModel: ProductModel) {
 
 eliminarProducto(productID: any, blnActive: any) {
     return this.http.delete(this.url, { params: { productID, blnActive } }).toPromise();
+}
+
+actualizarProductCarrito(carID: any, productModel: ProductModel) {
+    console.log(carID, productModel);
+    return this.http.patch(this.urlCar, productModel, { params: { carID } }).toPromise();
+}
+
+obtenerCarritoProductoId(carID: string) {
+
+    return this.http.get(`${this.urlCar}/`, { params: { carID } }).toPromise();
 }
 
 }

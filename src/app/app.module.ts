@@ -13,6 +13,7 @@ import { ProductEditComponent } from './components/productos/product-edit/produc
 import { ProductFormComponent } from './components/productos/product-form/product-form.component';
 import { ProductListComponent } from './components/productos/product-list/product-list.component';
 import { LoginComponent } from './components/login/login/login.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoginComponent } from './components/login/login/login.component';
     ShopListComponent,
     ShopRegistroComponent,
     ShopModificaComponent,
-    LoginComponent
+    LoginComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,
